@@ -1,4 +1,4 @@
 java-web
 ========
 
-Projetos Java Web para estudo
+Projetos Java Web para estudos e referências

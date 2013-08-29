@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Gerenciador financeiro pessoal</title>
+</h:head>
+
+<h:body>
+	<h1>Gerenciador financeiro pessoal</h1>
+	<h:form>
+		<h:commandLink action="#{usuarioBean.novo}">Novo usuário</h:commandLink>
+		<hr />
+		<h:dataTable value="#{listaUsuariosBean.usuarios}" var="o">
+			<h:column>#{o.id}</h:column>
+			<h:column>
+				<h:commandLink action="#{usuarioBean.verUsuario}">
+					#{o.nome}
+					<f:param name="id">#{o.id}</f:param>
+				</h:commandLink>
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</h:body>
+</html>

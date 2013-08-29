@@ -1,0 +1,7 @@
+INDEX VERSION 1.126
+C:\projetos\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2547124580.index
+\FinanceiroWeb\src
+C:\projetos\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4192721381.index
+\olamundo\src
+C:\projetos\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3720385563.index
+\FinanceiroWeb\src

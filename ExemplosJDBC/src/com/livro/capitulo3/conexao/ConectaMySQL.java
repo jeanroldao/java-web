@@ -6,17 +6,18 @@ import java.sql.SQLException;
 
 public class ConectaMySQL {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
 		Connection conexao = null;
 		
 		try {
 			
-			String url = "jdbc:mysql://localhost/agenda";
-			String usuario = "root";
-			String senha = "root";
+			String url = "jdbc:sqlite:C:\\java-web\\contato.db";
+			//String usuario = "root";
+			//String senha = "root";
 			
-			conexao = DriverManager.getConnection(url, usuario, senha);
+			Class.forName("org.sqlite.JDBC");
+			conexao = DriverManager.getConnection(url);
 			
 			System.out.println("conectado");
 			

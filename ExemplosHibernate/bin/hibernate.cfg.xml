@@ -5,11 +5,11 @@
 	<hibernate-configuration>
 		<session-factory>
 			<!-- MySQL -->
-			<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
-			<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-			<property name="connection.url">jdbc:mysql://localhost/agenda</property>
-			<property name="connection.username">root</property>
-			<property name="connection.password">root</property>
+			<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+			<property name="connection.driver_class">org.sqlite.JDBC</property>
+			<property name="connection.url">jdbc:sqlite:C:\\java-web\\contato.db</property>
+			<property name="connection.username"></property>
+			<property name="connection.password"></property>
 			<property name="current_session_context_class">thread</property>
 			<!-- C3PO connection pool -->
 			<property name="c3po.min_size">5</property>

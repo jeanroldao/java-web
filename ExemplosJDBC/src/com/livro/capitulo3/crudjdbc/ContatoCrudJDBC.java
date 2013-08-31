@@ -175,14 +175,17 @@ public class ContatoCrudJDBC {
 		Connection conexao = null;
 		
 		try {
-			
+			/*
 			String url = "jdbc:mysql://localhost/agenda";
 			String usuario = "root";
 			String senha = "root";
 			
 			conexao = DriverManager.getConnection(url, usuario, senha);
+			*/
 			
-		} catch (SQLException e) {
+			Class.forName("org.sqlite.JDBC");
+			conexao = DriverManager.getConnection("jdbc:sqlite:C:\\java-web\\contato.db");
+		} catch (SQLException | ClassNotFoundException e) {
 			System.out.println("Erro ao conectar ao banco de dados. ERRO: " + e.getMessage());
 		}
 		return conexao;

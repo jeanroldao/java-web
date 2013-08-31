@@ -1,67 +1,74 @@
 /** Disk-Space Utilization Report For contato.db
 
 Page size in bytes................................ 1024      
-Pages in the whole file (measured)................ 3         
-Pages in the whole file (calculated).............. 3         
-Pages that store data............................. 2           66.7% 
-Pages on the freelist (per header)................ 1           33.3% 
-Pages on the freelist (calculated)................ 1           33.3% 
+Pages in the whole file (measured)................ 4         
+Pages in the whole file (calculated).............. 4         
+Pages that store data............................. 4          100.0% 
+Pages on the freelist (per header)................ 0            0.0% 
+Pages on the freelist (calculated)................ 0            0.0% 
 Pages of auto-vacuum overhead..................... 0            0.0% 
 Number of tables in the database.................. 2         
 Number of indices................................. 0         
 Number of named indices........................... 0         
 Automatically generated indices................... 0         
-Size of the file in bytes......................... 3072      
-Bytes of user payload stored...................... 54           1.8% 
+Size of the file in bytes......................... 4096      
+Bytes of user payload stored...................... 1245        30.4% 
 
 *** Page counts for all tables with their indices *****************************
 
-CONTATO........................................... 1           33.3% 
-SQLITE_MASTER..................................... 1           33.3% 
+CONTATO........................................... 3           75.0% 
+SQLITE_MASTER..................................... 1           25.0% 
 
 *** Page counts for all tables and indices separately *************************
 
-CONTATO........................................... 1           33.3% 
-SQLITE_MASTER..................................... 1           33.3% 
+CONTATO........................................... 3           75.0% 
+SQLITE_MASTER..................................... 1           25.0% 
 
 *** All tables ****************************************************************
 
-Percentage of total database......................  66.7%    
-Number of entries................................. 2         
-Bytes of storage consumed......................... 2048      
-Bytes of payload.................................. 278         13.6% 
-Average payload per entry......................... 139.00    
-Average unused bytes per entry.................... 822.50    
+Percentage of total database...................... 100.0%    
+Number of entries................................. 20        
+Bytes of storage consumed......................... 4096      
+Bytes of payload.................................. 1469        35.9% 
+Average payload per entry......................... 73.45     
+Average unused bytes per entry.................... 120.15    
+Average fanout.................................... 2.00      
 Fragmentation.....................................   0.0%    
 Maximum payload per entry......................... 224       
 Entries that use overflow......................... 0            0.0% 
-Primary pages used................................ 2         
+Index pages used.................................. 1         
+Primary pages used................................ 3         
 Overflow pages used............................... 0         
-Total pages used.................................. 2         
-Unused bytes on primary pages..................... 1645        80.3% 
+Total pages used.................................. 4         
+Unused bytes on index pages....................... 1005        98.1% 
+Unused bytes on primary pages..................... 1398        45.5% 
 Unused bytes on overflow pages.................... 0         
-Unused bytes on all pages......................... 1645        80.3% 
+Unused bytes on all pages......................... 2403        58.7% 
 
 *** Table CONTATO *************************************************************
 
-Percentage of total database......................  33.3%    
-Number of entries................................. 1         
-Bytes of storage consumed......................... 1024      
-Bytes of payload.................................. 54           5.3% 
-Average payload per entry......................... 54.00     
-Average unused bytes per entry.................... 958.00    
-Maximum payload per entry......................... 54        
+Percentage of total database......................  75.0%    
+Number of entries................................. 19        
+Bytes of storage consumed......................... 3072      
+Bytes of payload.................................. 1245        40.5% 
+Average payload per entry......................... 65.53     
+Average unused bytes per entry.................... 90.32     
+Average fanout.................................... 2.00      
+Fragmentation.....................................   0.0%    
+Maximum payload per entry......................... 74        
 Entries that use overflow......................... 0            0.0% 
-Primary pages used................................ 1         
+Index pages used.................................. 1         
+Primary pages used................................ 2         
 Overflow pages used............................... 0         
-Total pages used.................................. 1         
-Unused bytes on primary pages..................... 958         93.6% 
+Total pages used.................................. 3         
+Unused bytes on index pages....................... 1005        98.1% 
+Unused bytes on primary pages..................... 711         34.7% 
 Unused bytes on overflow pages.................... 0         
-Unused bytes on all pages......................... 958         93.6% 
+Unused bytes on all pages......................... 1716        55.9% 
 
 *** Table SQLITE_MASTER *******************************************************
 
-Percentage of total database......................  33.3%    
+Percentage of total database......................  25.0%    
 Number of entries................................. 1         
 Bytes of storage consumed......................... 1024      
 Bytes of payload.................................. 224         21.9% 
@@ -251,5 +258,5 @@ CREATE TABLE space_used(
    compressed_size int  -- Total bytes stored on disk
 );
 INSERT INTO space_used VALUES(sqlite_master,sqlite_master,0,1,1,224,0,0,224,0,1,0,0,687,0,0,1024);
-INSERT INTO space_used VALUES(contato,contato,0,1,1,54,0,0,54,0,1,0,0,958,0,0,1024);
+INSERT INTO space_used VALUES(contato,contato,0,20,19,1245,0,0,74,1,2,0,1005,711,0,0,3072);
 COMMIT;

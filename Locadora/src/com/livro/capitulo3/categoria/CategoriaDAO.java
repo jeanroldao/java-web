@@ -1,6 +1,5 @@
 package com.livro.capitulo3.categoria;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;

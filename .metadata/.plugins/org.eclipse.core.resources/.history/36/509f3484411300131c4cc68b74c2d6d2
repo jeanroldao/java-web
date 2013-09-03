@@ -1,0 +1,12 @@
+package com.filme.capitulo3.filme;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "filme")
+public class Filme implements Serializable {
+	
+}

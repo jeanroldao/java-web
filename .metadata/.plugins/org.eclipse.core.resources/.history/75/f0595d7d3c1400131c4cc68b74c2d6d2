@@ -1,0 +1,129 @@
+package com.livro.capitulo3.cliente;
+
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
+
+import com.livro.capitulo3.locacao.Locacao;
+import com.livro.capitulo3.util.HibernateUtil;
+
+public class ClienteDAO {
+	private Session sessao;
+	private Transaction transacao;
+	
+	public void salvar(Cliente cliente) {
+		try {
+			sessao = HibernateUtil.getSessionFactory().getCurrentSession();
+			transacao = sessao.beginTransaction();
+			sessao.save(cliente);
+			transacao.commit();
+		} catch (HibernateException e) {
+			System.out.println("Não foi possivel inserir o cliente. Erro: " + e.getMessage());
+		} finally {
+			try {
+				if (sessao.isOpen()) {
+					sessao.close();
+				}
+			} catch (Throwable e) {
+				System.out.println("Erro ao fechar operação de inserção. Mensagem: " + e.getMessage());
+			}			
+		}
+	}
+	
+	public void atualizar(Cliente cliente) {
+		try {
+			sessao = HibernateUtil.getSessionFactory().getCurrentSession();
+			transacao = sessao.beginTransaction();
+			sessao.update(cliente);
+			transacao.commit();
+		} catch (HibernateException e) {
+			System.out.println("Não foi possivel alterar o cliente. Erro: " + e.getMessage());
+		} finally {
+			try {
+				if (sessao.isOpen()) {
+					sessao.close();
+				}
+			} catch (Throwable e) {
+				System.out.println("Erro ao fechar operação de atualização. Mensagem: " + e.getMessage());
+			}			
+		}
+	}
+	
+	public void excluir(Locacao locacao) {
+		try {
+			sessao = HibernateUtil.getSessionFactory().getCurrentSession();
+			transacao = sessao.beginTransaction();
+			sessao.delete(locacao);
+			transacao.commit();
+		} catch (HibernateException e) {
+			System.out.println("Não foi possivel excluir a locação. Erro: " + e.getMessage());
+		} finally {
+			try {
+				if (sessao.isOpen()) {
+					sessao.close();
+				}
+			} catch (Throwable e) {
+				System.out.println("Erro ao fechar operação de exclusão. Mensagem: " + e.getMessage());
+			}			
+		}
+	}
+	
+	public Locacao buscaMidia(Integer codigo) {
+		Locacao locacao = null;
+		
+		try {
+			sessao = HibernateUtil.getSessionFactory().getCurrentSession();
+			transacao = sessao.beginTransaction();
+			Criteria filtro = sessao.createCriteria(Locacao.class);
+			filtro.add(Restrictions.eq("midia", codigo));
+			locacao = (Locacao) filtro.uniqueResult();
+			transacao.commit();
+		} catch (Throwable e) {
+			if (transacao.isActive()) {
+				transacao.rollback();
+			}
+		} finally {
+			try {
+				if (sessao.isOpen()) {
+					sessao.close();
+				}
+			} catch (Throwable e) {
+				System.out.println("Erro ao fechar operação de busca. Mensagem: " + e.getMessage());
+			}
+		}
+		
+		return locacao;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Locacao> listar() {
+		List<Locacao> locacoes = null;
+		
+		try {
+			sessao = HibernateUtil.getSessionFactory().getCurrentSession();
+			transacao = sessao.beginTransaction();
+			Criteria filtro = sessao.createCriteria(Locacao.class);
+			locacoes = filtro.list();
+			transacao.commit();
+		} catch (Throwable e) {
+			if (transacao.isActive()) {
+				transacao.rollback();
+			}
+		} finally {
+			try {
+				if (sessao.isOpen()) {
+					sessao.close();
+				}
+			} catch (Throwable e) {
+				System.out.println("Erro ao fechar operação de listar. Mensagem: " + e.getMessage());
+			}
+		}
+		
+		return locacoes;
+	}
+
+}

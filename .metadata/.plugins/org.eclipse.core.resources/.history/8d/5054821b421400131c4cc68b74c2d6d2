@@ -1,0 +1,52 @@
+package com.livro.caiptulo3.locadora;
+
+import java.sql.Date;
+
+import com.filme.capitulo3.filme.Filme;
+import com.filme.capitulo3.filme.FilmeDAO;
+import com.livro.capitulo3.categoria.Categoria;
+import com.livro.capitulo3.categoria.CategoriaDAO;
+import com.livro.capitulo3.util.HibernateUtil;
+
+public class Locadora {
+	
+	public static void main(String[] args) {
+		HibernateUtil.getSessionFactory().openSession();
+		
+		Locadora locadora = new Locadora();
+		locadora.cadastraCategorias();
+	}
+	
+	public void cadastraCategorias() {
+		
+		// Cria as categorias de filmes
+		String[] categorias = {"Aventura", "Ação", "Comédia"};
+		
+		Categoria categoria = null;
+		CategoriaDAO categoriaDAO = new CategoriaDAO();
+		
+		for (int i = 0; i < categorias.length; i++) {
+			categoria = new Categoria();
+			categoria.setDescricao(categorias[i]);
+			categoriaDAO.salvar(categoria);
+		}
+	}
+	
+	@SuppressWarnings("deprecation")
+	public void cadastraFilmes() {
+		CategoriaDAO categoriaDAO = new CategoriaDAO();
+		String[] filmesDescricao = {"Senhor dos Anéis", "Transformers", "Ghostbusters"};
+		Date[] filmesAnoProducao = {new Date(2001 - 1900, 11, 19), new Date(2007 - 1900, 6, 20),
+				new Date(1985 - 1900, 1, 1)};
+		FilmeDAO filmeDAO = new FilmeDAO();
+		Filme filme = null;
+		
+		for (int i = 0; i < filmesDescricao.length; i++) {
+			filme = new Filme();
+			filme.setDescricao(filmesDescricao[i]);
+			filme.setAno(filmesAnoProducao[i]);
+			filme.setCategoria(categoriaDAO.buscaCategoria(i + 1));
+			filmeDAO.salvar(filme);
+		}
+	}
+}

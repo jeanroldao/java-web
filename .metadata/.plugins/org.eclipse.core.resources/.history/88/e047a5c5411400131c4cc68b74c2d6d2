@@ -1,0 +1,39 @@
+package com.livro.caiptulo3.locadora;
+
+import java.sql.Date;
+
+import com.livro.capitulo3.categoria.Categoria;
+import com.livro.capitulo3.categoria.CategoriaDAO;
+import com.livro.capitulo3.util.HibernateUtil;
+
+public class Locadora {
+	
+	public static void main(String[] args) {
+		HibernateUtil.getSessionFactory().openSession();
+		
+		Locadora locadora = new Locadora();
+		locadora.cadastraCategorias();
+	}
+	
+	public void cadastraCategorias() {
+		
+		// Cria as categorias de filmes
+		String[] categorias = {"Aventura", "Ação", "Comédia"};
+		
+		Categoria categoria = null;
+		CategoriaDAO categoriaDAO = new CategoriaDAO();
+		
+		for (int i = 0; i < categorias.length; i++) {
+			categoria = new Categoria();
+			categoria.setDescricao(categorias[i]);
+			categoriaDAO.salvar(categoria);
+		}
+	}
+	
+	@SuppressWarnings("deprecation")
+	public void cadastraFilmes() {
+		CategoriaDAO categoriaDAO = new CategoriaDAO();
+		String[] filmes = {"Senhor dos Anéis", "Transformers", "Ghostbusters"};
+		Date[] filmesAnoProducao = {new Date(2001 - 1900, 11, 19)};
+	}
+}

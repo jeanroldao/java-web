@@ -4,14 +4,14 @@ import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
 
-import com.filme.capitulo3.filme.Filme;
-import com.filme.capitulo3.filme.FilmeDAO;
 import com.livro.capitulo3.categoria.Categoria;
 import com.livro.capitulo3.categoria.CategoriaDAO;
 import com.livro.capitulo3.cliente.Cliente;
 import com.livro.capitulo3.cliente.ClienteDAO;
 import com.livro.capitulo3.endereco.Endereco;
 import com.livro.capitulo3.endereco.EnderecoDAO;
+import com.livro.capitulo3.filme.Filme;
+import com.livro.capitulo3.filme.FilmeDAO;
 import com.livro.capitulo3.locacao.Locacao;
 import com.livro.capitulo3.locacao.LocacaoDAO;
 import com.livro.capitulo3.midia.Midia;

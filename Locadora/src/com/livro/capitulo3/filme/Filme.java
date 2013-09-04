@@ -1,4 +1,4 @@
-package com.filme.capitulo3.filme;
+package com.livro.capitulo3.filme;
 
 import java.io.Serializable;
 import java.sql.Date;

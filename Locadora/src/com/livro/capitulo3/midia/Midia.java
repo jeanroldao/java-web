@@ -10,7 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.filme.capitulo3.filme.Filme;
+import com.livro.capitulo3.filme.Filme;
 
 @Entity
 @Table(name = "midia")

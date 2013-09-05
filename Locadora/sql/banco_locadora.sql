@@ -1,3 +1,7 @@
+/**
+ * @author Jean Roldão<jeanroldao@gmail.com>
+ */
+
 drop database locadora;
 create database locadora;
 use locadora;

@@ -46,8 +46,8 @@ public class Dia extends Option {
 			Document htmlTabela = Jsoup.connect("http://www.soul.com.br/site/itinerarios.php?sentido=" + sentido + "&linha=" + linhaEncoded + "&dia=" + dia).get();
 			
 			for (Element linhaTr : htmlTabela.select("tr[bgcolor]")) {
-				String hora = linhaTr.select("td:eq(0)").text();
-				String desc = linhaTr.select("td:eq(1)").text().replaceAll("&nbsp;", " ");
+				String hora = linhaTr.select("td:eq(0)").text().trim();
+				String desc = linhaTr.select("td:eq(1)").text().replaceAll("&nbsp;", " ").trim();
 				
 				horarios.add(new Horario(this.linha.getSentido().getText(), this.linha.getText(), getText(), hora, desc));
 			}

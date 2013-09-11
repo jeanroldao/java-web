@@ -43,10 +43,7 @@ public class UsuarioBean {
 		return "mostraUsuario";
 	}
 	
-	public String verUsuario(Usuario usuario) {
-		nome = usuario.getNome();
-		email = usuario.getEmail();
-		senha = confirmaSenha = usuario.getSenha();
+	public String verUsuario() {
 		
 		return "mostraUsuario";
 	}

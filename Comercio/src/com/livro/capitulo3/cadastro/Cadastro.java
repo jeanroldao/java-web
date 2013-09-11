@@ -8,6 +8,7 @@ import com.livro.capitulo3.categoria.Categoria;
 import com.livro.capitulo3.categoria.CategoriaDAO;
 import com.livro.capitulo3.produto.Produto;
 import com.livro.capitulo3.produto.ProdutoDAO;
+import com.livro.capitulo3.util.HibernateUtil;
 
 public class Cadastro {
 	
@@ -16,6 +17,10 @@ public class Cadastro {
 		
 		cadastro.cadastraProdutos();
 		cadastro.cadastraCategorias();
+		
+		@SuppressWarnings("unchecked")
+		List<Object> lista = HibernateUtil.getSessionFactory().openSession().createCriteria(Object.class).list();
+		System.out.println(lista.size());
 		
 		System.out.println("Cadastros gerados com sucesso!");
 	}

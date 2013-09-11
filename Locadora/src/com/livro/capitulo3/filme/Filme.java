@@ -9,12 +9,25 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import com.livro.capitulo3.categoria.Categoria;
 
 @Entity
 @Table(name = "filme")
+@NamedQuery(name = "consultaFilmePorChavePrimaria", 
+			query = "select f from Filme f where f.filme = :filme")
+@NamedQueries({
+		@NamedQuery(
+			name = "consultaFilmePorDescricao",
+			query = "select f from Filme f where f.descricao like :descricao"
+		),
+		@NamedQuery(
+			name = "consultaFilmePorCategoria",
+			query = "select f from Filme f where join f.categoria c where c.categoria = :categoria"
+		)})
 public class Filme implements Serializable {
 	
 	private static final long serialVersionUID = 3610338298857053874L;

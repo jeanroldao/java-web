@@ -15,13 +15,16 @@ import org.jsoup.nodes.Element;
 
 public class SoulAsync {
 	
-	public static final ExecutorService pool = Executors.newFixedThreadPool(16);
+	public static final int MAX_THREADS = 16;
+	public static final int TIME_OUT = 10000;
+	
+	public static final ExecutorService pool = Executors.newFixedThreadPool(MAX_THREADS);
 	
 	public static Future<Document> getDocumentFromUrl(final String url) {
 		return pool.submit(new Callable<Document>() {
 			@Override
 			public Document call() throws Exception {
-				return Jsoup.connect(url).timeout(10000).get();
+				return Jsoup.connect(url).timeout(TIME_OUT).get();
 			}
 		});
 	}

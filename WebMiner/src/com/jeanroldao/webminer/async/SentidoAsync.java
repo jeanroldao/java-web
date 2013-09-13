@@ -26,7 +26,7 @@ public class SentidoAsync {
 				List<LinhaAsync> linhas = new ArrayList<LinhaAsync>();
 				
 				//Document htmlSentido = SoulAsync.getDocumentFromUrl("http://www.soul.com.br/site/itinerarios.php?sentido=" + value).get();
-				Document htmlSentido = Jsoup.connect("http://www.soul.com.br/site/itinerarios.php?sentido=" + value).get();
+				Document htmlSentido = Jsoup.connect("http://www.soul.com.br/site/itinerarios.php?sentido=" + value).timeout(SoulAsync.TIME_OUT).get();
 				
 				for (Element linha : htmlSentido.select("#linha option")) {
 					if (linha.val().length() > 0) {

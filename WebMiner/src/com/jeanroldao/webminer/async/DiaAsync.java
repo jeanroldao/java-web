@@ -32,7 +32,7 @@ public class DiaAsync {
 				String dia = getValue();
 				
 				String linhaEncoded = URLEncoder.encode(linha.getValue(), Charset.defaultCharset().displayName());
-				Document htmlTabela = Jsoup.connect("http://www.soul.com.br/site/itinerarios.php?sentido=" + sentido + "&linha=" + linhaEncoded + "&dia=" + dia).get();
+				Document htmlTabela = Jsoup.connect("http://www.soul.com.br/site/itinerarios.php?sentido=" + sentido + "&linha=" + linhaEncoded + "&dia=" + dia).timeout(SoulAsync.TIME_OUT).get();
 				
 				for (Element linhaTr : htmlTabela.select("tr[bgcolor]")) {
 					String hora = linhaTr.select("td:eq(0)").text().trim();

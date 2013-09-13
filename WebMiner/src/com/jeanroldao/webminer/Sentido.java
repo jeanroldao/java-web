@@ -20,13 +20,13 @@ public class Sentido extends Option {
 		if (linhas != null) {
 			return linhas;
 		} else {
-			linhas = new ArrayList<>();
+			linhas = new ArrayList<Linha>();
 			
 			Document htmlSentido = Jsoup.connect("http://www.soul.com.br/site/itinerarios.php?sentido=" + getValue()).get();
 			
 			for (Element linha : htmlSentido.select("#linha option")) {
 				if (linha.val().length() > 0) {
-					List<Dia> dias = new ArrayList<>();
+					List<Dia> dias = new ArrayList<Dia>();
 					for (Element dia : htmlSentido.select("#dia option")) {
 						if (dia.val().length() > 0) {
 							dias.add(new Dia(dia.val(), dia.text()));

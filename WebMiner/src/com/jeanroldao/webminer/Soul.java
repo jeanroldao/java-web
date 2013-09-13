@@ -12,7 +12,7 @@ import org.jsoup.nodes.Element;
 public class Soul {
 
 	public static List<Horario> loadFromSoul() throws IOException {
-		List<Horario> horarios = new ArrayList<>();
+		List<Horario> horarios = new ArrayList<Horario>();
 		
 		for (Sentido sentido : loadSentidos()) {
 			for (Linha linha : sentido.getLinhas()) {
@@ -28,7 +28,7 @@ public class Soul {
 	}
 	
 	private static List<Sentido> loadSentidos() throws IOException {
-		List<Sentido> sentidos = new ArrayList<>();
+		List<Sentido> sentidos = new ArrayList<Sentido>();
 		Document html = Jsoup.connect("http://www.soul.com.br/site/itinerarios.php?").get();
 		
 		List<String> tipos = Arrays.asList("ALV-POA", "POA-ALV");

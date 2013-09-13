@@ -16,7 +16,7 @@ public class Linha extends Option {
 
 	public List<Dia> getDias() {
 		if (dias == null) {
-			dias = new ArrayList<>();
+			dias = new ArrayList<Dia>();
 		}
 		return dias;
 	}

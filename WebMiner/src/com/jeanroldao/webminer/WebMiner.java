@@ -9,8 +9,15 @@ import org.jsoup.nodes.Element;
 public class WebMiner {
 	
 	public static void main(String[] args) throws IOException {
-		String json = Soul.getJson();
-		System.out.println(json);
+		long ini_ms = System.currentTimeMillis();
+		System.out.println("start...");
+		
+		//String json = Soul.getJson();
+		//System.out.println(json);
+		System.out.println("total: " + Soul.loadFromSoul().size());
+		
+		long total_ms = System.currentTimeMillis() - ini_ms;
+		System.out.println("...end ("+total_ms+")");
 	}
 	
 	public static void main1(String[] args) throws IOException {

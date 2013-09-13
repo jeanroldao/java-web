@@ -36,7 +36,7 @@ public class Dia extends Option {
 		if (horarios != null) {
 			return horarios;
 		} else {
-			horarios = new ArrayList<>();
+			horarios = new ArrayList<Horario>();
 			
 			String sentido = this.linha.getSentido().getValue();
 			String linha = this.linha.getValue();

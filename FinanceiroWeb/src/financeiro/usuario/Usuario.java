@@ -3,13 +3,24 @@ package financeiro.usuario;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+import org.hibernate.annotations.NaturalId;
+
+@Entity
 public class Usuario implements Serializable {
 	
 	private static final long serialVersionUID = -2276215792742363279L;
 	
+	@Id
+	@GeneratedValue
 	private Integer codigo;
 	private String nome;
 	private String email;
+	
+	@NaturalId
 	private String login;
 	private String senha;
 	private Date nascimento;

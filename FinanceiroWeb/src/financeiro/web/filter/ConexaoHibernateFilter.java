@@ -9,7 +9,6 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-import org.eclipse.jdt.internal.compiler.ast.ThrowStatement;
 import org.hibernate.SessionFactory;
 
 import financeiro.util.HibernateUtil;

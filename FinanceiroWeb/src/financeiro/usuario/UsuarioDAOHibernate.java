@@ -12,7 +12,7 @@ public class UsuarioDAOHibernate extends GenericDAOHibernate<Usuario> implements
 	}
 
 	@Override
-	public Usuario buscaPorLogin(String login) {
+	public Usuario buscarPorLogin(String login) {
 		String hql = "select u from Usuario u where u.login = :login";
 		Query consulta = session.createQuery(hql);
 		consulta.setString(":login", login);

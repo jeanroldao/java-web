@@ -19,7 +19,7 @@
 		<param-value>Development</param-value>
 	</context-param>
 	<welcome-file-list>
-		<welcome-file>index.xhtml</welcome-file>
+		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
 	<filter>
 		<filter-name>conexaoFilter</filter-name>

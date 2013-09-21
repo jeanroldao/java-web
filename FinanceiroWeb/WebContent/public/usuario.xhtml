@@ -44,9 +44,8 @@
 			
 			<h:outputLabel value="Idioma: " for="idioma" />
 			<h:selectOneMenu id="idioma" value="#{usuarioBean.usuario.idioma}">
-				<f:selectItem itemValue="pt_BR" itemLabel="Português" />
-				<f:selectItem itemValue="en_US" itemLabel="English" />
-				<f:selectItem itemValue="es_ES" itemLabel="Español" />
+				<f:selectItem itemValue="" itemLabel="Não informado" />
+				<f:selectItems value="#{usuarioBean.idiomas}" />
 			</h:selectOneMenu>
 			
 			<h:outputLabel value="Login: " for="login" />

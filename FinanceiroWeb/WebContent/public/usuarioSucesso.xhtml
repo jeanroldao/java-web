@@ -3,14 +3,13 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-	<title>Login</title>
+	<title>Cadastro de Usuários</title>
 </h:head>
 <h:body>
-	<h1>Login</h1>
-	<hr />
-	<h:form>
-		<h:commandButton action="#{usuarioBean.novo}" value="Registre-se" />
-	</h:form>
+	<h1><h:outputText value="#{usuarioBean.usuario.nome}" />, seja bem vindo</h1>
+	Seu cadastro foi efetuado com sucesso.
+	<br />
+	Clique <a href="login.jsf">aqui</a> para efetuar o login
 	<hr />
 </h:body>
 </html>

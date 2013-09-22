@@ -18,11 +18,19 @@ public class UsuarioBean {
 	private Usuario usuario = new Usuario();
 	private String confirmarSenha;
 	private List<SelectItem> idiomas;
+	private List<Usuario> lista;
+	private String destinoSalvar;
 	
 	public String novo() {
+		this.destinoSalvar = "usuarioSucesso";
 		this.usuario = new Usuario();
 		this.usuario.setAtivo(true);
 		return "usuario";
+	}
+	
+	public String editar() {
+		this.confirmarSenha = this.usuario.getSenha();
+		return "/public/usuario";
 	}
 	
 	public String salvar() {
@@ -38,7 +46,34 @@ public class UsuarioBean {
 		UsuarioBO usuarioBO = new UsuarioBO();
 		usuarioBO.salvar(this.usuario);
 		
-		return "usuarioSucesso";
+		return this.destinoSalvar;
+	}
+	
+	public String excluir() {
+		UsuarioBO usuarioBO = new UsuarioBO();
+		usuarioBO.excluir(this.usuario);
+		this.lista = null;
+		return null;
+	}
+	
+	public String ativar() {
+		if (this.usuario.isAtivo()) {
+			this.usuario.setAtivo(false);
+		} else {
+			this.usuario.setAtivo(true);
+		}
+		
+		UsuarioBO usuarioBO = new UsuarioBO();
+		usuarioBO.salvar(this.usuario);
+		return null;
+	}
+	
+	public List<Usuario> getLista() {
+		if (this.lista == null) {
+			UsuarioBO usuarioBO = new UsuarioBO();
+			this.lista = usuarioBO.listar();
+		}
+		return this.lista;
 	}
 	
 	public Usuario getUsuario() {
@@ -52,6 +87,12 @@ public class UsuarioBean {
 	}
 	public void setConfirmarSenha(String confirmarSenha) {
 		this.confirmarSenha = confirmarSenha;
+	}
+	public String getDestinoSalvar() {
+		return this.destinoSalvar;
+	}
+	public void setDestinoSalvar(String destinoSalvar) {
+		this.destinoSalvar = destinoSalvar;
 	}
 	public List<SelectItem> getIdiomas() {
 		if (idiomas == null) {

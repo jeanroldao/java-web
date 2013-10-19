@@ -30,7 +30,7 @@ public class UsuarioBean {
 	
 	public String editar() {
 		this.confirmarSenha = this.usuario.getSenha();
-		return "/public/usuario";
+		return "/publico/usuario";
 	}
 	
 	public String salvar() {

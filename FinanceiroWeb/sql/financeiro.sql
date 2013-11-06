@@ -15,3 +15,8 @@ create table usuario (
 	primary key (codigo),
 	unique key login (login)
 );
+
+create table usuario_permissao (
+	usuario int,
+	permissao varchar(255)
+);

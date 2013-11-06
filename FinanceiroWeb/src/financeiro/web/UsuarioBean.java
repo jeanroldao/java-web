@@ -70,7 +70,7 @@ public class UsuarioBean {
 	}
 	
 	
-	public String atribuePermissao(Usuario usuario, String permissao) {
+	public String atribuiPermissao(Usuario usuario, String permissao) {
 		this.usuario = usuario;
 		Set<String> permissoes = usuario.getPermissao();
 		if (permissoes.contains(permissao)) {

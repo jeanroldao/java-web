@@ -19,7 +19,7 @@ public class GenericDAOHibernate<T> implements GenericDAO<T> {
 	
 	@Override
 	public void salvar(T entity) {
-		session.save(entity);
+		session.saveOrUpdate(entity);
 	}
 
 	@Override

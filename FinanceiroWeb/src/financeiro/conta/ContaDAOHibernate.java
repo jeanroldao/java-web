@@ -22,7 +22,7 @@ public class ContaDAOHibernate extends GenericDAOHibernate<Conta> implements Con
 	}
 
 	@Override
-	public Conta buscarContaFavorita(Usuario usuario) {
+	public Conta buscarFavorita(Usuario usuario) {
 		Criteria criteria = session.createCriteria(Conta.class);
 		criteria.add(Restrictions.eq("usuario", usuario));
 		criteria.add(Restrictions.eq("favorita", true));

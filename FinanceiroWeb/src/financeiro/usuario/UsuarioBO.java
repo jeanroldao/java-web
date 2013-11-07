@@ -9,7 +9,7 @@ public class UsuarioBO {
 	private UsuarioDAO usuarioDAO;
 	
 	public UsuarioBO() {
-		usuarioDAO = DAOFactory.criaUsuarioDAO();
+		usuarioDAO = DAOFactory.criarUsuarioDAO();
 	}
 	
 	public Usuario carregar(Integer codigo) {

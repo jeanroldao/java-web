@@ -13,5 +13,5 @@ public interface ContaDAO extends GenericDAO<Conta> {
 	
 	List<Conta> listar(Usuario usuario);
 	
-	Conta buscarContaFavorita(Usuario usuario);
+	Conta buscarFavorita(Usuario usuario);
 }

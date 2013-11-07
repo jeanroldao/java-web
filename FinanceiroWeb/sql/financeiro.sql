@@ -27,7 +27,7 @@ create table conta_bancaria (
 	des_conta varchar(255) default null,
 	dat_cadastro datetime not null,
 	saldo_inicial float default null,
-	favorita char(1) default null,
+	favorita bit(1) default null,
 	primary key (cod_conta),
 	key fk_conta_usuario (cod_usuario),
 	constraint fk_conta_usuario

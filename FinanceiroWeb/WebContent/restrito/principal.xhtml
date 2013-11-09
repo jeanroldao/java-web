@@ -11,6 +11,8 @@
 	
 	Usuário logado #{request.remoteUser}
 	<br />
+	Nome do Usuário Logado #{contextoBean.usuarioLogado.nome}
+	<br />
 	<h:form>
 		<sec:ifAnyGranted roles="ROLE_ADMINISTRADOR">
 			<h:commandLink action="/admin/principal" title="Administrativo">

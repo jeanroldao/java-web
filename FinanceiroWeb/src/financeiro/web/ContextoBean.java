@@ -6,6 +6,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ValueChangeEvent;
 
 import financeiro.conta.Conta;
 import financeiro.conta.ContaBO;
@@ -56,5 +57,11 @@ public class ContextoBean {
 			}
 		}
 		return contaAtiva;
+	}
+	
+	public void setContaAtiva(ValueChangeEvent event) {
+		Integer conta = (Integer) event.getNewValue();
+		ContaBO contaBO = new ContaBO();
+		contaAtiva = contaBO.carregar(conta);
 	}
 }

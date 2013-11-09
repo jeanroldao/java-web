@@ -6,6 +6,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 import financeiro.conta.Conta;
+import financeiro.conta.ContaBO;
+import financeiro.web.util.ContextoUtil;
 
 @ManagedBean(name = "contaBean")
 @RequestScoped
@@ -14,7 +16,14 @@ public class ContaBean {
 	private Conta selecionada = new Conta();
 	private List<Conta> lista = null;
 	
-	public void salvar() {}
+	public void salvar() {
+		ContextoBean contextoBean = ContextoUtil.getContextoBean();
+		selecionada.setUsuario(contextoBean.getUsuarioLogado());
+		ContaBO contaBO = new ContaBO();
+		contaBO.salvar(selecionada);
+		selecionada = new Conta();
+		lista = null;
+	}
 	
 	public void editar() {}
 	

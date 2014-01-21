@@ -1,5 +1,6 @@
 package financeiro.web;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -27,6 +28,8 @@ public class ContaBean {
 	
 	public void editar() {}
 	
+	public void excluir() {}
+	
 	public void tornarFavorita() {}
 
 	public Conta getSelecionada() {
@@ -38,6 +41,11 @@ public class ContaBean {
 	}
 
 	public List<Conta> getLista() {
+		if (lista == null) {
+			ContaBO contaBO = new ContaBO();
+			ContextoBean contextoBean = ContextoUtil.getContextoBean();
+			lista = contaBO.listar(contextoBean.getUsuarioLogado());
+		}
 		return lista;
 	}
 

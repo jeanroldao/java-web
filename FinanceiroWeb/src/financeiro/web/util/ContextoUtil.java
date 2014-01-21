@@ -12,7 +12,7 @@ public class ContextoUtil {
 		FacesContext context = FacesContext.getCurrentInstance();
 		ExternalContext external = context.getExternalContext();
 		HttpSession session = (HttpSession) external.getSession(true);
-		ContextoBean contextoBean = (ContextoBean) session.getAttribute("contextBean");
+		ContextoBean contextoBean = (ContextoBean) session.getAttribute("contextoBean");
 		return contextoBean;
 	}
 }

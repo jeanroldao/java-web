@@ -21,6 +21,8 @@ public class ContextoBean {
 	
 	private Conta contaAtiva = null;
 	
+	private List<Conta> contas = null;
+	
 	public Usuario getUsuarioLogado() {
 		FacesContext context = FacesContext.getCurrentInstance();
 		ExternalContext external = context.getExternalContext();
@@ -60,8 +62,16 @@ public class ContextoBean {
 	}
 	
 	public void setContaAtiva(ValueChangeEvent event) {
-		Integer conta = (Integer) event.getNewValue();
+		Integer conta = Integer.valueOf(event.getNewValue().toString());
 		ContaBO contaBO = new ContaBO();
 		contaAtiva = contaBO.carregar(conta);
+	}
+	
+	public List<Conta> getContas() {
+		if (contas == null) {
+			ContaBO contaBO = new ContaBO();
+			contas = contaBO.listar(getUsuarioLogado());
+		}
+		return contas;
 	}
 }

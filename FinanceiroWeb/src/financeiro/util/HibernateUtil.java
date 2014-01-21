@@ -2,6 +2,7 @@ package financeiro.util;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.tool.hbm2ddl.SchemaExport;
 
 public class HibernateUtil {
 	
@@ -11,6 +12,8 @@ public class HibernateUtil {
 		try {
 			AnnotationConfiguration cfg = new AnnotationConfiguration();
 			cfg.configure("hibernate.cfg.xml");
+			//SchemaExport schema = new SchemaExport(cfg);
+			//schema.create(true, true);
 			return cfg.buildSessionFactory();
 		} catch (Throwable e) {
 			System.out.println("Erro na criação da sessão: " + e.getMessage());

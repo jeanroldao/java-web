@@ -35,7 +35,9 @@ public class ContaBean {
 	}
 	
 	public void tornarFavorita() {
-		
+		ContaBO contaBO = new ContaBO();
+		contaBO.tornarFavorita(selecionada);
+		selecionada = new Conta();
 	}
 
 	public Conta getSelecionada() {

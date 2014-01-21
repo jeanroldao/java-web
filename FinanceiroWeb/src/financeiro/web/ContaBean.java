@@ -25,12 +25,18 @@ public class ContaBean {
 		selecionada = new Conta();
 		lista = null;
 	}
+
 	
-	public void editar() {}
+	public void excluir() {
+		ContaBO contaBO = new ContaBO();
+		contaBO.excluir(selecionada);
+		selecionada = new Conta();
+		lista = null;
+	}
 	
-	public void excluir() {}
-	
-	public void tornarFavorita() {}
+	public void tornarFavorita() {
+		
+	}
 
 	public Conta getSelecionada() {
 		return selecionada;

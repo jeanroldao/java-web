@@ -14,19 +14,23 @@
 	Nome do Usuário Logado: #{contextoBean.usuarioLogado.nome}
 	<br />
 	<h:form>
+		<h:commandButton value="Conta" action="conta" />
+		
+		<h:selectOneMenu value="{contextoBean.contaAtiva.conta}"
+			valueChangeListener="#{contextoBean.setContaAtiva}"
+			rendered="#{!empty contextoBean}"
+			onchange="submit()">
+			<f:selectItems value="#{contextoBean.contas}" 
+				var="conta" 
+				itemValue="#{conta.conta}"
+				itemLabel="#{conta.descricao}" />
+		</h:selectOneMenu>
+		
 		<sec:ifAnyGranted roles="ROLE_ADMINISTRADOR">
-			<h:commandLink action="/admin/principal" title="Administrativo">
-				<h:graphicImage library="imagens" name="administrativo16.png" />
-			</h:commandLink>
+			<h:commandButton value="Administração" action="/admin/principal"/>
 		</sec:ifAnyGranted>
 		
-		<h:commandLink action="/restrito/conta" title="Conta">
-			<h:graphicImage library="imagens" name="editar16.png" />
-		</h:commandLink>
-		
-		<a href="#{request.contextPath}/j_spring_security_logout" title="Sair">
-			<h:graphicImage library="imagens" name="logout16.png" />
-		</a>
+		<input type="button" value="Logout" onclick="document.location='#{request.contextPath}/j_spring_security_logout'" />
 	</h:form>
 </h:body>
 </html>

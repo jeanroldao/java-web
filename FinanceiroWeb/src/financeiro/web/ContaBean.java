@@ -56,8 +56,4 @@ public class ContaBean {
 		}
 		return lista;
 	}
-
-	public void setLista(List<Conta> lista) {
-		this.lista = lista;
-	}
 }

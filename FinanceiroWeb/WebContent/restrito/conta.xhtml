@@ -26,6 +26,7 @@
 			<h:commandButton value="Salvar" action="#{contaBean.salvar}">
 				<f:ajax execute="@form" render=":edicao :listagem" />
 			</h:commandButton>
+			<input type="button" value="Voltar" onclick="window.history.back()"  />
 		</h:panelGrid>
 	</h:form>
 	<h:form id="listagem">

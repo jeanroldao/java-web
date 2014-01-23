@@ -10,6 +10,8 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 
+import financeiro.conta.Conta;
+import financeiro.conta.ContaBO;
 import financeiro.usuario.Usuario;
 import financeiro.usuario.UsuarioBO;
 
@@ -21,6 +23,7 @@ public class UsuarioBean {
 	private List<SelectItem> idiomas;
 	private List<Usuario> lista;
 	private String destinoSalvar;
+	private Conta conta = new Conta();
 	
 	public String novo() {
 		this.destinoSalvar = "usuarioSucesso";
@@ -47,9 +50,17 @@ public class UsuarioBean {
 		UsuarioBO usuarioBO = new UsuarioBO();
 		usuarioBO.salvar(this.usuario);
 		
+		if (this.conta.getDescricao() != null) {
+			this.conta.setUsuario(this.usuario);
+			this.conta.setFavorita(true);
+			
+			ContaBO contaBO = new ContaBO();
+			contaBO.salvar(this.conta);
+		}
+		
 		return this.destinoSalvar;
 	}
-	
+
 	public String excluir() {
 		UsuarioBO usuarioBO = new UsuarioBO();
 		usuarioBO.excluir(this.usuario);
@@ -116,5 +127,13 @@ public class UsuarioBean {
 			idiomas.add(new SelectItem("jp_JP", "日本語"));
 		}
 		return idiomas;
+	}
+	
+	public Conta getConta() {
+		return conta;
+	}
+
+	public void setConta(Conta conta) {
+		this.conta = conta;
 	}
 }

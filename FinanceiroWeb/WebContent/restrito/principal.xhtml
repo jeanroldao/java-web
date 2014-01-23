@@ -20,7 +20,7 @@
 			valueChangeListener="#{contextoBean.setContaAtiva}"
 			rendered="#{!empty contextoBean}"
 			onchange="submit()">
-			<f:selectItems value="#{contextoBean.contas}" 
+			<f:selectItems value="#{contaBean.lista}" 
 				var="conta" 
 				itemValue="#{conta.conta}"
 				itemLabel="#{conta.descricao}" />

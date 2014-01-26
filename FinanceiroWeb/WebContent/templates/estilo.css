@@ -1,0 +1,16 @@
+@CHARSET "ISO-8859-1";
+
+body, td, th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+th {
+	background: url(#{resource['imagens:fundo_claro.png']});
+	min-height: 25px;
+	padding: 3px;
+}
+
+img {
+	border: 0px;
+}

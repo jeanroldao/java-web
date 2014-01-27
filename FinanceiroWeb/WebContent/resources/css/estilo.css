@@ -1,36 +1,38 @@
+@CHARSET "ISO-8859-1";
+
 body, td, th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 12px;
 }
 
 th {
-	background: url(#{resource['imagens:fundo_claro.png']}); 
 	min-height: 25px;
 	padding: 3px;
+	background: url(#{resource['imagens:fundo_claro.png']});
 }
 
 img {
-	border:0px;
+	border: 0px;
 }
 
 #container {
 	width: 770px;
 	height: 100%;
-	margin: 0 auto
+	margin: 0 auto;
 }
-	
+
 #titulo {
 	float: left;
-	font-size: 25pt;
+	font-size: 23pt;
 	font-variant: small-caps;
 	font-weight: bold;
 }
 
 #barra_menu {
-	background: url(#{resource['imagens:fundo_barra_menu.png']}) repeat-x; 
 	min-height: 25px;
 	padding: 3px;
-	clear:both;
+	clear: both;
+	background: url(#{resource['imagens:fundo_barra_menu.png']});
 }
 
 #corpo {
@@ -40,24 +42,10 @@ img {
 }
 
 #rodape {
-	background: url(#{resource['imagens:fundo_barra_rodape.png']}) repeat-x;
 	height: 100px;
 	margin-top: 5px;
 	padding: 10px;
 	text-align: center;
+	background: url(#{resource['imagens:fundo_barra_rodape']}) repeat-x;
 }
 
-.info {
-	font-weight: bold;
-	color: green;
-}
-
-.warn {
-	font-weight: bold;
-	color: #FFCC00;
-}
-
-.fatal, .error {
-	font-weight: bold;
-	color: red;
-}

@@ -6,11 +6,46 @@ body, td, th {
 }
 
 th {
-	background: url(#{resource['imagens:fundo_claro.png']});
 	min-height: 25px;
 	padding: 3px;
+	background: url(#{resource['imagens:fundo_claro.png']});
 }
 
 img {
 	border: 0px;
 }
+
+#container {
+	width: 770px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+#titulo {
+	float: left;
+	font-size: 25pt;
+	font-variant: small-caps;
+	font-weight: bold;
+}
+
+#barra_menu {
+	min-height: 25px;
+	padding: 3px;
+	clear: both;
+	background: url(#{resource['imagens:fundo_barra_menu.png']});
+}
+
+#corpo {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	min-height: 300px;
+}
+
+#rodape {
+	height: 100px;
+	margin-top: 5px;
+	padding: 10px;
+	text-align: center;
+	background: url(#{resource['imagens:fundo_barra_rodape']}) repeat-x;
+}
+

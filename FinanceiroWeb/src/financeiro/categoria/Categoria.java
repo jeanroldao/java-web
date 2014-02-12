@@ -8,10 +8,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.ForeignKey;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.hibernate.annotations.OrderBy;
 
 import financeiro.usuario.Usuario;
 
@@ -39,6 +41,9 @@ public class Categoria implements Serializable {
 	
 	private int fator;
 	
+	@OneToMany
+	@JoinColumn(name = "categoria_pai", updatable = false)
+	@OrderBy(clause = "descricao asc")
 	private List<Categoria> filhos;
 	
 	public Categoria() {}

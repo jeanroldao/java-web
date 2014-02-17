@@ -2,6 +2,7 @@ package financeiro.usuario;
 
 import java.util.List;
 
+import financeiro.categoria.CategoriaBO;
 import financeiro.util.DAOFactory;
 
 public class UsuarioBO {
@@ -20,17 +21,23 @@ public class UsuarioBO {
 		return usuarioDAO.buscarPorLogin(login);
 	}
 	
-	public void salvar(Usuario usuario) { 
+	public void salvar(Usuario usuario) {
 		Integer codigo = usuario.getCodigo();
 		if (codigo == null || codigo == 0) {
 			usuario.getPermissao().add("ROLE_USUARIO");
 			usuarioDAO.salvar(usuario);
+			
+			CategoriaBO categoriaBO = new CategoriaBO();
+			categoriaBO.salvaEstruturaPadrao(usuario);
 		} else {
 			usuarioDAO.atualizar(usuario);
 		}
 	}
 	
 	public void excluir(Usuario usuario) {
+		CategoriaBO categoriaBO = new CategoriaBO();
+		categoriaBO.excluir(usuario);
+		
 		usuarioDAO.excluir(usuario);
 	}
 	

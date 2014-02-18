@@ -2,7 +2,6 @@ package financeiro.util;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
-import org.hibernate.tool.hbm2ddl.SchemaExport;
 
 public class HibernateUtil {
 	

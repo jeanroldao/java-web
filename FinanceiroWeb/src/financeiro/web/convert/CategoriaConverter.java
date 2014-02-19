@@ -13,7 +13,7 @@ import financeiro.categoria.CategoriaBO;
 public class CategoriaConverter implements Converter {
 
 	@Override
-	public Object getAsObject(FacesContext context, UIComponent componebt, String value) {
+	public Object getAsObject(FacesContext context, UIComponent component, String value) {
 		if (value != null && value.trim().length() > 0) {
 			Integer codigo = Integer.valueOf(value);
 			try {

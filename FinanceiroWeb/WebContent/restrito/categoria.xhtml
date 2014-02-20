@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+<ui:composition template="/templates/interna.xhtml">
+	<ui:define name="titulo">
+		Categorias
+	</ui:define>
+	<ui:define name="corpo">
+		<f:view contentType="text/html">
+			<h:panelGrid columns="2" cellpadding="5">
+				<h:panelGroup>
+					<h:form>
+						<h:commandButton value="Novo" action="#{categoriaBean.novo}" update="edicao" />
+					</h:form>
+					<br />
+					<h:form id="arvore">
+						<p:tree value="#{categoriaBean.categoriasTree}" var="node" 
+							dynamic="false"
+							selectionMode="single"
+							nodeSelectListener="#{categoriaBean.selecionar}"
+							update="selecionar"
+							expandAnim="FADE_IN" collapseAnim="FADE_OUT">
+							<p:treeNode>
+								<h:outputText value="#{node.descricao}" />
+							</p:treeNode>
+						</p:tree>
+					</h:form>
+				</h:panelGroup>
+			</h:panelGrid>
+		</f:view>
+	</ui:define>
+</ui:composition>
+</html>

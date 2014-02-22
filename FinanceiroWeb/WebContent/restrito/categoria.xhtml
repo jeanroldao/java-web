@@ -33,6 +33,23 @@
 				<h:panelGroup id="edicao">
 					<h:messages />
 					<h:form rendered="#{categoriaBean.mostraEdicao}">
+						<h:inputHidden value="#{categoriaBean.editada.codigo}" />
+						<h:inputHidden value="#{categoriaBean.editada.fator}" />
+						<h:panelGrid columns="2">
+							<h:outputLabel value="Pai" />
+							<h:selectOneMenu value="#{categoriaBean.editada.pai}">
+								<f:selectItems value="#{categoriaBean.categoriasSelect}" />
+							</h:selectOneMenu>
+							<h:outputLabel value="Descrição" />
+							<h:inputText value="#{categoriaBean.editada.descricao}" />
+							<h:outputText />
+							<h:panelGroup>
+								<p:commandButton value="Salvar" action="#{categoriaBean.salvar}" update="edicao, arvore" />
+								<p:commandButton value="Excluir" action="#{categoriaBean.excluir}" update="edicao, arvore" />
+							</h:panelGroup>
+							<h:outputText />
+							<p:commandButton value="Nova subcategoria" action="#{categoriaBean.novo}" update="edicao" />
+						</h:panelGrid>
 					</h:form>
 				</h:panelGroup>
 			</h:panelGrid>

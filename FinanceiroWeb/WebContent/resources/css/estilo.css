@@ -46,6 +46,6 @@ img {
 	margin-top: 5px;
 	padding: 10px;
 	text-align: center;
-	background: url(#{resource['imagens:fundo_barra_rodape']}) repeat-x;
+	background: url(#{resource['imagens:fundo_barra_rodape.png']}) repeat-x;
 }
 

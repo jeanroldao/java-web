@@ -42,6 +42,8 @@ public class CategoriaDAOHibernate implements CategoriaDAO {
 		String hql = "select c from Categoria c where c.pai is null and c.usuario = :usuario";
 		Query query = session.createQuery(hql);
 		
+		query.setInteger("usuario", usuario.getCodigo());
+		
 		@SuppressWarnings("unchecked")
 		List<Categoria> lista = query.list();
 		return lista;

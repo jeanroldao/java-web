@@ -73,6 +73,7 @@ public class CategoriaBean {
 			CategoriaBO categoriaBO = new CategoriaBO();
 			List<Categoria> categorias = categoriaBO.listar(contextoBean.getUsuarioLogado());
 			categoriasTree = new DefaultTreeNode(null, null);
+			categoriasTree.setExpanded(true);
 			montaDadosTree(categoriasTree, categorias);
 		}
 		return categoriasTree;

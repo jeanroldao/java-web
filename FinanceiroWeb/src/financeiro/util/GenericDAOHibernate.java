@@ -6,7 +6,7 @@ import org.hibernate.Session;
 
 public class GenericDAOHibernate<T> implements GenericDAO<T> {
 	
-	private Class<T> type;
+	protected Class<T> type;
 	protected Session session;
 	
 	public GenericDAOHibernate(Class<T> type) {

@@ -32,5 +32,6 @@
 			<mapping class="financeiro.usuario.Usuario" />
 			<mapping class="financeiro.conta.Conta" />
 			<mapping class="financeiro.categoria.Categoria" />
+			<mapping class="financeiro.lancamento.Lancamento" />
 		</session-factory>
 	</hibernate-configuration>

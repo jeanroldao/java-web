@@ -20,7 +20,7 @@ import financeiro.web.util.ContextoUtil;
 public class LancamentoBean {
 	
 	private List<Lancamento> lista;
-	private List<Double> saldos = new ArrayList<Double>();;
+	private List<Double> saldos = new ArrayList<Double>();
 	private float saldoGeral;
 	
 	private Lancamento editado;
@@ -62,6 +62,8 @@ public class LancamentoBean {
 	
 	public List<Lancamento> getLista() {
 		if (lista == null) {
+			saldos = new ArrayList<Double>();
+			
 			ContextoBean contextoBean = ContextoUtil.getContextoBean();
 			Conta conta = contextoBean.getContaAtiva();
 			

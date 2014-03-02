@@ -95,7 +95,6 @@ public class LancamentoBean {
 	}
 
 	public List<Double> getSaldos() {
-		saldos.get(0).doubleValue();
 		return saldos;
 	}
 

@@ -44,7 +44,7 @@ public class LancamentoDAOHibernate extends GenericDAOHibernate<Lancamento> impl
 		StringBuilder sql = new StringBuilder();
 		sql.append("select sum(l.valor * c.fator)");
 		sql.append("  from LANCAMENTO l,");
-		sql.append("       CATEGORA c");
+		sql.append("       CATEGORIA c");
 		sql.append(" where l.categoria = c.codigo");
 		sql.append("   and l.conta = :conta");
 		sql.append("   and l.data <= :data");

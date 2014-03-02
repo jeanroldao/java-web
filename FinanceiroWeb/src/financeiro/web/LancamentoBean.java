@@ -25,9 +25,6 @@ public class LancamentoBean {
 	
 	private Lancamento editado;
 	
-	//@ManagedProperty("contextoBean")
-	//private ContextoBean contextoBean_test;
-	
 	public LancamentoBean() {
 		novo();
 	}

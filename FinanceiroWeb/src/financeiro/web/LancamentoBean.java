@@ -86,4 +86,20 @@ public class LancamentoBean {
 		}
 		return lista;
 	}
+
+	public Lancamento getEditado() {
+		return editado;
+	}
+
+	public void setEditado(Lancamento editado) {
+		this.editado = editado;
+	}
+
+	public List<Double> getSaldos() {
+		return saldos;
+	}
+
+	public float getSaldoGeral() {
+		return saldoGeral;
+	}
 }

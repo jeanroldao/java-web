@@ -18,6 +18,7 @@ import financeiro.usuario.UsuarioBO;
 @ManagedBean(name="usuarioBean")
 @RequestScoped
 public class UsuarioBean {
+	
 	private Usuario usuario = new Usuario();
 	private String confirmarSenha;
 	private List<SelectItem> idiomas;

@@ -16,7 +16,7 @@ import financeiro.usuario.UsuarioBO;
 @ManagedBean(name = "contextoBean")
 @SessionScoped
 public class ContextoBean {
-	
+
 	private Usuario usuarioLogado = null;
 	
 	private Conta contaAtiva = null;

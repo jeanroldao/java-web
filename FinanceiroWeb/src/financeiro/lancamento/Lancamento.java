@@ -55,6 +55,7 @@ public class Lancamento implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date data;
 	
+	@Column(columnDefinition="text")
 	private String descricao;
 	
 	@Column(precision = 10, scale = 2)

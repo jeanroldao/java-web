@@ -18,7 +18,6 @@ import financeiro.web.util.ContextoUtil;
 @ManagedBean(name = "lancamentoBean")
 @ViewScoped
 public class LancamentoBean {
-	
 	private List<Lancamento> lista;
 	private List<Double> saldos = new ArrayList<Double>();
 	private float saldoGeral;
@@ -54,6 +53,7 @@ public class LancamentoBean {
 		LancamentoBO lancamentoBO = new LancamentoBO();
 		editado = lancamentoBO.carregar(editado.getLancamento());
 		lancamentoBO.excluir(editado);
+		novo();
 		lista = null;
 	}
 	
@@ -95,6 +95,7 @@ public class LancamentoBean {
 	}
 
 	public List<Double> getSaldos() {
+		saldos.get(0).doubleValue();
 		return saldos;
 	}
 

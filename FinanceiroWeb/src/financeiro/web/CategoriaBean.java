@@ -18,7 +18,7 @@ import financeiro.web.util.ContextoUtil;
 @ManagedBean(name = "categoriaBean")
 @RequestScoped
 public class CategoriaBean {
-
+	
 	private TreeNode categoriasTree;
 	private Categoria editada = new Categoria();
 	private List<SelectItem> categoriasSelect;

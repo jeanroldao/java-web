@@ -1,5 +1,6 @@
 package financeiro.web;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -17,8 +18,13 @@ import financeiro.web.util.ContextoUtil;
 
 @ManagedBean(name = "lancamentoBean")
 @ViewScoped
-public class LancamentoBean {
+public class LancamentoBean implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	
 	private List<Lancamento> lista;
+	private List<Lancamento> listaAteHoje;
+	private List<Lancamento> listaFuturos;
 	private List<Double> saldos = new ArrayList<Double>();
 	private float saldoGeral;
 	
@@ -85,7 +91,35 @@ public class LancamentoBean {
 		}
 		return lista;
 	}
+	
+	public List<Lancamento> getListaAteHoje() {
+		if (listaAteHoje == null) {
+			ContextoBean contextoBean = ContextoUtil.getContextoBean();
+			Conta conta = contextoBean.getContaAtiva();
+			
+			Calendar hoje = new GregorianCalendar();
+			
+			LancamentoBO lancamentoBO = new LancamentoBO();
+			listaAteHoje = lancamentoBO.listar(conta, null, hoje.getTime());
+		}
+		return listaAteHoje;
+	}
 
+
+	public List<Lancamento> getListaFuturos() {
+		if (listaFuturos == null) {
+			ContextoBean contextoBean = ContextoUtil.getContextoBean();
+			Conta conta = contextoBean.getContaAtiva();
+			
+			Calendar amanha = new GregorianCalendar();
+			amanha.add(Calendar.DAY_OF_MONTH, 1);
+			
+			LancamentoBO lancamentoBO = new LancamentoBO();
+			listaFuturos = lancamentoBO.listar(conta, amanha.getTime(), null);
+		}
+		return listaFuturos;
+	}
+	
 	public Lancamento getEditado() {
 		return editado;
 	}

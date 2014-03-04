@@ -34,5 +34,6 @@
 			<mapping class="financeiro.categoria.Categoria" />
 			<mapping class="financeiro.lancamento.Lancamento" />
 			<mapping class="financeiro.entidade.Entidade" />
+			<mapping class="financeiro.cheque.Cheque" />
 		</session-factory>
 	</hibernate-configuration>

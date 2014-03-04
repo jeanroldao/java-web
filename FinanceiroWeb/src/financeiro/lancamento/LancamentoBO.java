@@ -15,6 +15,7 @@ public class LancamentoBO {
 	}
 	
 	public void salvar(Lancamento lancamento) {
+		lancamento.setValor(lancamento.getValor().abs());
 		lancamentoDAO.salvar(lancamento);
 	}
 	

@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -20,6 +21,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import financeiro.categoria.Categoria;
+import financeiro.cheque.Cheque;
 import financeiro.conta.Conta;
 import financeiro.entidade.Entidade;
 import financeiro.usuario.Usuario;
@@ -66,6 +68,9 @@ public class Lancamento implements Serializable {
 	@JoinColumn(name = "entidade", nullable = true)
 	@ForeignKey(name = "fk_lancamento_entidade")
 	private Entidade entidade;
+	
+	@OneToOne(fetch = FetchType.LAZY, mappedBy = "lancamento")
+	private Cheque cheque;
 	
 	private Double avaliacao;
 
@@ -141,16 +146,29 @@ public class Lancamento implements Serializable {
 		this.avaliacao = avaliacao;
 	}
 
+	public Cheque getCheque() {
+		return cheque;
+	}
+
+	public void setCheque(Cheque cheque) {
+		this.cheque = cheque;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result
+				+ ((avaliacao == null) ? 0 : avaliacao.hashCode());
+		result = prime * result
 				+ ((categoria == null) ? 0 : categoria.hashCode());
+		result = prime * result + ((cheque == null) ? 0 : cheque.hashCode());
 		result = prime * result + ((conta == null) ? 0 : conta.hashCode());
 		result = prime * result + ((data == null) ? 0 : data.hashCode());
 		result = prime * result
 				+ ((descricao == null) ? 0 : descricao.hashCode());
+		result = prime * result
+				+ ((entidade == null) ? 0 : entidade.hashCode());
 		result = prime * result
 				+ ((lancamento == null) ? 0 : lancamento.hashCode());
 		result = prime * result + ((usuario == null) ? 0 : usuario.hashCode());
@@ -167,10 +185,20 @@ public class Lancamento implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Lancamento other = (Lancamento) obj;
+		if (avaliacao == null) {
+			if (other.avaliacao != null)
+				return false;
+		} else if (!avaliacao.equals(other.avaliacao))
+			return false;
 		if (categoria == null) {
 			if (other.categoria != null)
 				return false;
 		} else if (!categoria.equals(other.categoria))
+			return false;
+		if (cheque == null) {
+			if (other.cheque != null)
+				return false;
+		} else if (!cheque.equals(other.cheque))
 			return false;
 		if (conta == null) {
 			if (other.conta != null)
@@ -186,6 +214,11 @@ public class Lancamento implements Serializable {
 			if (other.descricao != null)
 				return false;
 		} else if (!descricao.equals(other.descricao))
+			return false;
+		if (entidade == null) {
+			if (other.entidade != null)
+				return false;
+		} else if (!entidade.equals(other.entidade))
 			return false;
 		if (lancamento == null) {
 			if (other.lancamento != null)

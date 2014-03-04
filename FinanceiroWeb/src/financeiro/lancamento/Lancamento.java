@@ -35,19 +35,19 @@ public class Lancamento implements Serializable {
 	@Column(name = "codigo")
 	private Integer lancamento;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "usuario", nullable = false)
 	@ForeignKey(name = "fk_lancamento_usuario")
 	private Usuario usuario;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "conta", nullable = false)
 	@ForeignKey(name = "fk_lancamento_conta")
 	private Conta conta;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "categoria", nullable = false)
 	@ForeignKey(name = "fk_lancamento_categoria")

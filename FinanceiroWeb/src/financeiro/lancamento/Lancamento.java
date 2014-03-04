@@ -61,7 +61,7 @@ public class Lancamento implements Serializable {
 	@Column(precision = 10, scale = 2)
 	private BigDecimal valor;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "entidade", nullable = true)
 	@ForeignKey(name = "fk_lancamento_entidade")

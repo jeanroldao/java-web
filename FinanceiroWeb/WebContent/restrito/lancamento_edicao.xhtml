@@ -10,12 +10,11 @@
 		<h:messages />
 		<h:inputHidden value="#{lancamentoBean.editado.lancamento}" />
 		
-		<h:panelGrid columns="5">
+		<h:panelGrid columns="4">
 			<h:outputLabel value="Data" for="data" />
 			<h:outputLabel value="Categoria" for="categoria" />
 			<h:outputLabel value="Descrição" for="descricao" />
 			<h:outputLabel value="Valor" for="valor" />
-			<h:outputLabel value="Favorecido/Fornecedor" for="entidade" />
 			
 			<p:calendar id="data" value="#{lancamentoBean.editado.data}" pattern="dd/MM/yyyy" />
 			
@@ -28,9 +27,15 @@
 			<h:inputText id="valor" value="#{lancamentoBean.editado.valor}" size="10">
 				<f:convertNumber minFractionDigits="2" maxFractionDigits="2" />
 			</h:inputText>
+
+			<h:outputLabel value="Favorecido/Fornecedor" for="entidade" />
+			<h:outputLabel value="Avaliação" for="avaliacao" />
+			<h:outputText />
+			<h:outputText />
 			
 			<p:autoComplete value="#{lancamentoBean.editado.entidade}" id="entidade" completeMethod="#{lancamentoBean.autocompleteEntidade}"  
                         var="e" itemLabel="#{e.nome}" itemValue="#{e}" forceSelection="true"/>
+            <p:rating id="avaliacao" value="#{lancamentoBean.editado.avaliacao}" />  
 		</h:panelGrid>
 		<p:commandButton value="Novo" action="#{lancamentoBean.novo}" process="@this" update="edicao" />
 		<p:commandButton value="Salvar" action="#{lancamentoBean.salvar}" update="listagem, edicao" />

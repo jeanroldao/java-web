@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.ForeignKey;
@@ -43,7 +44,7 @@ public class Cheque implements Serializable {
 	@Column(nullable = false, precision = 1)
 	private Character situacao;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.LAZY)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "lancamento", referencedColumnName = "codigo", nullable = true)
 	@ForeignKey(name = "fk_cheque_lancamento")

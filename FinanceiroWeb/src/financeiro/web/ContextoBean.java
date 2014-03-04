@@ -1,5 +1,6 @@
 package financeiro.web;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -15,7 +16,9 @@ import financeiro.usuario.UsuarioBO;
 
 @ManagedBean(name = "contextoBean")
 @SessionScoped
-public class ContextoBean {
+public class ContextoBean implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private Usuario usuarioLogado = null;
 	

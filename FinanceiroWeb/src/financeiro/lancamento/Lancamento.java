@@ -21,13 +21,14 @@ import org.hibernate.annotations.OnDeleteAction;
 
 import financeiro.categoria.Categoria;
 import financeiro.conta.Conta;
+import financeiro.entidade.Entidade;
 import financeiro.usuario.Usuario;
 
 @Entity
 @Table(name = "lancamento")
 public class Lancamento implements Serializable {
 
-	private static final long serialVersionUID = 8741006157974685589L;
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue
@@ -55,11 +56,16 @@ public class Lancamento implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date data;
 	
-	@Column(columnDefinition="text")
 	private String descricao;
 	
 	@Column(precision = 10, scale = 2)
 	private BigDecimal valor;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	@JoinColumn(name = "entidade", nullable = true)
+	@ForeignKey(name = "fk_lancamento_entidade")
+	private Entidade entidade;
 
 	public Integer getLancamento() {
 		return lancamento;
@@ -117,6 +123,14 @@ public class Lancamento implements Serializable {
 		this.valor = valor;
 	}
 	
+	public Entidade getEntidade() {
+		return entidade;
+	}
+
+	public void setEntidade(Entidade entidade) {
+		this.entidade = entidade;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

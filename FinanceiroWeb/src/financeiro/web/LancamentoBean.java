@@ -12,6 +12,8 @@ import javax.faces.bean.ViewScoped;
 
 import financeiro.categoria.Categoria;
 import financeiro.conta.Conta;
+import financeiro.entidade.Entidade;
+import financeiro.entidade.EntidadeBO;
 import financeiro.lancamento.Lancamento;
 import financeiro.lancamento.LancamentoBO;
 import financeiro.web.util.ContextoUtil;
@@ -61,6 +63,11 @@ public class LancamentoBean implements Serializable {
 		lancamentoBO.excluir(editado);
 		novo();
 		lista = null;
+	}
+	
+	public List<Entidade> autocompleteEntidade(String query) {
+		List<Entidade> lista = new EntidadeBO().listarPorNome(query);
+		return lista;
 	}
 	
 	public List<Lancamento> getLista() {

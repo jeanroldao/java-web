@@ -66,6 +66,8 @@ public class Lancamento implements Serializable {
 	@JoinColumn(name = "entidade", nullable = true)
 	@ForeignKey(name = "fk_lancamento_entidade")
 	private Entidade entidade;
+	
+	private Double avaliacao;
 
 	public Integer getLancamento() {
 		return lancamento;
@@ -129,6 +131,14 @@ public class Lancamento implements Serializable {
 
 	public void setEntidade(Entidade entidade) {
 		this.entidade = entidade;
+	}
+
+	public Double getAvaliacao() {
+		return avaliacao;
+	}
+
+	public void setAvaliacao(Double avaliacao) {
+		this.avaliacao = avaliacao;
 	}
 
 	@Override

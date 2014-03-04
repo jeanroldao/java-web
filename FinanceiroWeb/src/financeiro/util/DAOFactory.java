@@ -2,6 +2,8 @@ package financeiro.util;
 
 import financeiro.categoria.CategoriaDAO;
 import financeiro.categoria.CategoriaDAOHibernate;
+import financeiro.cheque.ChequeDAO;
+import financeiro.cheque.ChequeDAOHibernate;
 import financeiro.conta.ContaDAO;
 import financeiro.conta.ContaDAOHibernate;
 import financeiro.entidade.EntidadeDAO;
@@ -41,5 +43,11 @@ public class DAOFactory {
 		EntidadeDAOHibernate entidadeDAO = new EntidadeDAOHibernate();
 		entidadeDAO.setSession(HibernateUtil.getSessionFactory().getCurrentSession());
 		return entidadeDAO;
+	}
+	
+	public static ChequeDAO criaChequeDAO() {
+		ChequeDAOHibernate chequeDAO = new ChequeDAOHibernate();
+		chequeDAO.setSession(HibernateUtil.getSessionFactory().getCurrentSession());
+		return chequeDAO;
 	}
 }

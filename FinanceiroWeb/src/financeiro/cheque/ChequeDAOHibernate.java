@@ -14,8 +14,8 @@ public class ChequeDAOHibernate extends GenericDAOHibernate<Cheque> implements C
 	}
 
 	@Override
-	public Cheque carregar(ChequeID chequeID) {
-		return (Cheque) session.get(type, chequeID);
+	public Cheque carregar(ChequeId chequeId) {
+		return (Cheque) session.get(type, chequeId);
 	}
 
 	@Override

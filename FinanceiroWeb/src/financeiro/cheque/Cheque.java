@@ -30,7 +30,7 @@ public class Cheque implements Serializable {
 	public static final char SITUACAO_CHEQUE_NAO_EMITIDO = 'N';
 	
 	@EmbeddedId
-	private ChequeID chequeID;
+	private ChequeId chequeId;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@OnDelete(action = OnDeleteAction.CASCADE)
@@ -50,12 +50,12 @@ public class Cheque implements Serializable {
 	@ForeignKey(name = "fk_cheque_lancamento")
 	private Lancamento lancamento;
 
-	public ChequeID getChequeID() {
-		return chequeID;
+	public ChequeId getChequeId() {
+		return chequeId;
 	}
 
-	public void setChequeID(ChequeID chequeID) {
-		this.chequeID = chequeID;
+	public void setChequeId(ChequeId chequeId) {
+		this.chequeId = chequeId;
 	}
 
 	public Conta getConta() {
@@ -95,7 +95,7 @@ public class Cheque implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result
-				+ ((chequeID == null) ? 0 : chequeID.hashCode());
+				+ ((chequeId == null) ? 0 : chequeId.hashCode());
 		result = prime * result + ((conta == null) ? 0 : conta.hashCode());
 		result = prime * result
 				+ ((dataCadastro == null) ? 0 : dataCadastro.hashCode());
@@ -115,10 +115,10 @@ public class Cheque implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Cheque other = (Cheque) obj;
-		if (chequeID == null) {
-			if (other.chequeID != null)
+		if (chequeId == null) {
+			if (other.chequeId != null)
 				return false;
-		} else if (!chequeID.equals(other.chequeID))
+		} else if (!chequeId.equals(other.chequeId))
 			return false;
 		if (conta == null) {
 			if (other.conta != null)

@@ -7,7 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class ChequeID implements Serializable {
+public class ChequeId implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
@@ -52,7 +52,7 @@ public class ChequeID implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ChequeID other = (ChequeID) obj;
+		ChequeId other = (ChequeId) obj;
 		if (cheque == null) {
 			if (other.cheque != null)
 				return false;

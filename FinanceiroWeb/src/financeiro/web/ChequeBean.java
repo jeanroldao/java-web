@@ -16,7 +16,7 @@ import financeiro.web.util.MensagemUtil;
 
 @ManagedBean(name = "chequeBean")
 @RequestScoped
-class ChequeBean {
+public class ChequeBean {
 	private Cheque selecionado = new Cheque();
 	private List<Cheque> lista = null;
 	private Integer chequeInicial;

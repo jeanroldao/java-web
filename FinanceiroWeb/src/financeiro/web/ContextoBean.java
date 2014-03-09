@@ -1,7 +1,10 @@
 package financeiro.web;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -21,8 +24,9 @@ public class ContextoBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Usuario usuarioLogado = null;
-	
 	private Conta contaAtiva = null;
+	private Locale localizacao = null;
+	private List<Locale> idiomas;
 	
 	public Usuario getUsuarioLogado() {
 		FacesContext context = FacesContext.getCurrentInstance();
@@ -66,5 +70,37 @@ public class ContextoBean implements Serializable {
 		Integer conta = Integer.valueOf(event.getNewValue().toString());
 		ContaBO contaBO = new ContaBO();
 		contaAtiva = contaBO.carregar(conta);
+	}
+	
+	public Locale getLocaleUsuario() {
+		if (localizacao == null) {
+			String idioma = getUsuarioLogado().getIdioma();
+			String[] info = idioma.split("_");
+			localizacao = new Locale(info[0], info[1]);
+		}
+		return localizacao;
+	}
+	
+	public List<Locale> getIdiomas() {
+		FacesContext context = FacesContext.getCurrentInstance();
+		Iterator<Locale> locales = context.getApplication().getSupportedLocales();
+		idiomas = new ArrayList<Locale>();
+		while (locales.hasNext()) {
+			idiomas.add(locales.next());
+		}
+		return idiomas;
+	}
+	
+	public void setIdiomaUsuario(String idioma) {
+		UsuarioBO usuarioBO = new UsuarioBO();
+		usuarioLogado = usuarioBO.carregar(getUsuarioLogado().getCodigo());
+		usuarioLogado.setIdioma(idioma);
+		usuarioBO.salvar(usuarioLogado);
+		
+		String[] info = idioma.split("_");
+		Locale locale = new Locale(info[0], info[1]);
+		
+		FacesContext context = FacesContext.getCurrentInstance();
+		context.getViewRoot().setLocale(locale);
 	}
 }

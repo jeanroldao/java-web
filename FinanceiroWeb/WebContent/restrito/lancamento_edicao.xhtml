@@ -28,11 +28,13 @@
 				<f:convertNumber minFractionDigits="2" maxFractionDigits="2" />
 			</h:inputText>
 
+			<h:outputLabel value="Cheque" for="numeroCheque" />
 			<h:outputLabel value="Favorecido/Fornecedor" for="entidade" />
 			<h:outputLabel value="Avaliação" for="avaliacao" />
 			<h:outputText />
-			<h:outputText />
 			
+			<h:inputText id="numeroCheque" value="#{lancamentoBean.numeroCheque}" maxlength="6" size="6" 
+					valueChangeListener="#{lancamentoBean.mudouCheque}" />
 			<p:autoComplete value="#{lancamentoBean.editado.entidade}" id="entidade" completeMethod="#{lancamentoBean.autocompleteEntidade}"  
                         var="e" itemLabel="#{e.nome}" itemValue="#{e}" forceSelection="true"/>
             <p:rating id="avaliacao" value="#{lancamentoBean.editado.avaliacao}" />  

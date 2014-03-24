@@ -22,7 +22,7 @@ public class YahooFinanceUtil {
 	public static final String SEPARADOR_BOVESPA = ";";
 	public static final String SEPARADOR_MUNDO = ",";
 	public static final String INDICE_BOVESPA = "^BVSP";
-	public static final String KEY_YAHOO = "sl1d1t1c1ohgv";
+	public static final String YAHOO_FORMAT = "sl1d1t1c1ohgv";
 	
 	public static final int SIGLA_ACAO_INDICE = 0;
 	public static final int ULTIMO_PRECO_DIA_ACAO_INDICE = 1;
@@ -51,7 +51,7 @@ public class YahooFinanceUtil {
 			indiceInformacao = ULTIMO_PRECO_DIA_ACAO_INDICE;
 		}
 		
-		String endereco = "http://" + local + ".finance.yahoo.com/d/quotes.csv?s=" + acao + "&f=" + KEY_YAHOO + "&e=.csv";
+		String endereco = "http://" + local + ".finance.yahoo.com/d/quotes.csv?s=" + acao + "&f=" + YAHOO_FORMAT + "&e=.csv";
 		String linha = null;
 		URL url = null;
 		String valorRetorno = null;

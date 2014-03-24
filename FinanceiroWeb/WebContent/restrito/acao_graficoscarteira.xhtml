@@ -11,7 +11,7 @@
 		<h:form id="graficosCarteira">
 			<h:panelGrid columns="2" width="100%">
 				<p:panel header="Composição carteira em % de quantidade" toggleable="true" toggleSpeed="500">
-					<p:pieChart value="#{acaoBeanLista}" var="acaoVirtual"
+					<p:pieChart value="#{acaoBean.lista}" var="acaoVirtual"
 							categoryField="#{acaoVirtual.acao.sigla}"
 							dataField="#{acaoVirtual.acao.quantidade}"
 							width="265px" height="125px" style="estiloGrafico" />

@@ -16,7 +16,7 @@ public class YahooFinanceUtil {
 	public static final char ORIGEM_BOVESPA = 'B';
 	public static final char ORIGEM_MUNDO = 'M';
 	
-	public static final String LOCAL_BOVESPA = "br";
+	public static final String LOCAL_BOVESPA = "download";
 	public static final String LOCAL_MUNDO = "download";
 	public static final String POSFIXO_ACAO_BOVESPA = ".SA";
 	public static final String SEPARADOR_BOVESPA = ";";

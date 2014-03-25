@@ -33,7 +33,7 @@
 				<p:confirmDialog message="Deseja salvar os dados?" header="Pergunta" 
 						severity="info" widgetVar="confirmation">
 					<p:commandButton value="Sim" update="edicao, listagem, graficosCarteira"
-							oncomplete="confirmation.hide()" actionListener="#{acaoBean.salvar}" />
+							oncomplete="confirmation.destroy()" actionListener="#{acaoBean.salvar}" />
 					<p:commandButton value="Não" onclick="confirmation.hide()" type="button" />
 				</p:confirmDialog>
 			</h:panelGrid>

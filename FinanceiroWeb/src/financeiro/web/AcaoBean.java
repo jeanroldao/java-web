@@ -1,5 +1,6 @@
 package financeiro.web;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -49,6 +50,7 @@ public class AcaoBean {
 				lista = new AcaoBO().listarAcaoVirtual(contextoBean.getUsuarioLogado());
 			} catch (BOException e) {
 				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
+				lista = new ArrayList<AcaoVirtual>();
 			}
 		}
 		return lista;

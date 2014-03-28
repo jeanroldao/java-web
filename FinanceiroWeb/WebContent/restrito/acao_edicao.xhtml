@@ -29,13 +29,7 @@
 					<f:selectItem itemValue="B" itemLabel="Bovespa" />
 					<f:selectItem itemValue="M" itemLabel="Mundo" />
 				</h:selectOneMenu>
-				<p:commandButton value="Salvar" onclick="confirmation.show()" />
-				<p:confirmDialog message="Deseja salvar os dados?" header="Pergunta" 
-						severity="info" widgetVar="confirmation">
-					<p:commandButton value="Sim" update="edicao, listagem, graficosCarteira"
-							oncomplete="confirmation.hide()" actionListener="#{acaoBean.salvar}" />
-					<p:commandButton value="Não" onclick="confirmation.hide()" type="button" />
-				</p:confirmDialog>
+				<p:commandButton value="Salvar" onclick="if (!confirm('Deseja salvar os dados?')) { return false;}" action="#{acaoBean.salvar}" update="edicao, listagem, graficosCarteira" />
 			</h:panelGrid>
 		</h:form>
 	</h:panelGrid>

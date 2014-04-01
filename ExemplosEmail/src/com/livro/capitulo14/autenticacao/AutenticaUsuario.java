@@ -12,6 +12,7 @@ public class AutenticaUsuario extends Authenticator {
 		this.senha = senha;
 	}
 	
+	@Override
 	public PasswordAuthentication getPasswordAuthentication() {
 		return new PasswordAuthentication(usuario, senha);
 	}

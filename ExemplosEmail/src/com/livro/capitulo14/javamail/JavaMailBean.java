@@ -38,7 +38,7 @@ public class JavaMailBean {
 	private String mensagem;
 	private String anexo;
 	
-	public void enviarAutenticacao() {
+	public void enviarAutenticado() {
 		FacesContext context = FacesContext.getCurrentInstance();
 		
 		Properties config = new Properties();

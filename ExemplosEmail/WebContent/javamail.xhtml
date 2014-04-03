@@ -13,8 +13,23 @@
 			<f:facet name="header">
 				<h:outputText value="Enviando E-Mail com JavaMail" />
 			</f:facet>
-			<h:outputText value="De: " />
+			<h:outputText value="De:" />
+			<h:inputText value="#{javaMailBean.de}" id="de" required="true" />
+			<h:outputText value="Para: " />
+			<h:inputText value="#{javaMailBean.para}" id="para" required="true" />
+			<h:outputText value="Cc:" />
+			<h:inputText value="#{javaMailBean.destinatariosNormais}" id="cc" />
+			<h:outputText value="Bcc:" />
+			<h:inputText value="#{javaMailBean.destinatariosOcultos}" id="bcc" />
+			<h:outputText value="Assunto:" />
+			<h:inputText value="#{javaMailBean.assunto}" id="assunto" required="true" />
+			<h:outputText value="Mensagem:" />
+			<h:inputTextarea rows="10" cols="30" value="#{javaMailBean.mensagem}" id="mensagem" required="true" />
+			<h:outputText value="Anexo:" />
+			<h:inputText value="#{javaMailBean.anexo}" />
 		</h:panelGrid>
+		<h:commandButton action="#{javaMailBean.enviarAutenticado}" value="Enviar e-mail autenticado e com anexo" />
+		<h:commandButton action="#{javaMailBean.enviarSimples}" value="Enviar e-mail simples" />
 	</h:form>
 </h:body>
 </html>

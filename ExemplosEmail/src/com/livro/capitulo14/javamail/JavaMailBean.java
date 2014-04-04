@@ -20,6 +20,7 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
 import com.livro.capitulo14.autenticacao.AutenticaUsuario;
+import com.sun.mail.smtp.SMTPMessage;
 
 @ManagedBean(name = "javaMailBean")
 @RequestScoped
@@ -83,7 +84,13 @@ public class JavaMailBean {
 			
 			email.setContent(partesEmail);
 			
-			Transport.send(email);
+			SMTPMessage smtpMessage = new SMTPMessage(email);
+			smtpMessage.setHeader("Return-Receipt-To", de);
+			smtpMessage.setHeader("Disposition-Notification-To", de);
+			smtpMessage.setReturnOption(SMTPMessage.RETURN_FULL);
+			smtpMessage.setNotifyOptions(SMTPMessage.NOTIFY_SUCCESS);
+			
+			Transport.send(smtpMessage);
 			
 			context.addMessage(null, new FacesMessage("E-Mail enviado com sucesso"));
 			
@@ -121,6 +128,7 @@ public class JavaMailBean {
 			email.setSubject(this.assunto);
 			email.setSentDate(new Date());
 			email.setText(this.mensagem);
+			Transport.send(email);
 			
 			context.addMessage(null, new FacesMessage("E-Mail enviado com sucesso"));
 			

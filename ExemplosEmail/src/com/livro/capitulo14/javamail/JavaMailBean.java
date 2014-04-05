@@ -92,7 +92,7 @@ public class JavaMailBean {
 			
 			Transport.send(smtpMessage);
 			
-			context.addMessage(null, new FacesMessage("E-Mail enviado com sucesso"));
+			context.addMessage(null, new FacesMessage("E-Mail autenticado enviado com sucesso"));
 			
 		} catch (AddressException e) {
 			context.addMessage(null, new FacesMessage("Erro ao montar mensagem de e-Mail! Erro:" + e.getMessage()));
@@ -130,7 +130,7 @@ public class JavaMailBean {
 			email.setText(this.mensagem);
 			Transport.send(email);
 			
-			context.addMessage(null, new FacesMessage("E-Mail enviado com sucesso"));
+			context.addMessage(null, new FacesMessage("E-Mail simples enviado com sucesso"));
 			
 		} catch (AddressException e) {
 			context.addMessage(null, new FacesMessage("Erro ao montar mensagem de e-Mail! Erro:" + e.getMessage()));

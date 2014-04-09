@@ -128,6 +128,7 @@ public class JavaMailBean {
 			email.setSubject(this.assunto);
 			email.setSentDate(new Date());
 			email.setText(this.mensagem);
+			
 			Transport.send(email);
 			
 			context.addMessage(null, new FacesMessage("E-Mail simples enviado com sucesso"));
@@ -141,9 +142,11 @@ public class JavaMailBean {
 	
 	private InternetAddress[] montaDestinatarios(String destinatarios) throws AddressException {
 		InternetAddress[] emails = null;
+		
 		if (destinatarios != null && destinatarios.trim().length() > 0) {
 			String[] lista = destinatarios.split(";");
 			emails = new InternetAddress[lista.length];
+			
 			for (int i = 0; i < lista.length; i++) {
 				emails[i] = new InternetAddress(lista[i]);
 			}

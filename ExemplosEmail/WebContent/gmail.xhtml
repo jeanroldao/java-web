@@ -24,7 +24,7 @@
 			<h:outputText value="Mensagem:" />
 			<h:inputTextarea rows="10" cols="30" value="#{gmailBean.mensagem}" id="mensagem" required="true" />
 		</h:panelGrid>
-		<h:commandButton action="#{gmailBean.enviarEmailAsync}" value="Enviar" />
+		<h:commandButton action="#{gmailBean.enviarEmail}" value="Enviar" />
 	</h:form>
 </h:body>
 </html>

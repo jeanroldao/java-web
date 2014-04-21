@@ -66,8 +66,8 @@ public class GmailBean {
 	private Properties configuracaoEmail() {
 		Properties config = new Properties();
 		
-		// Configuração adicional para servidor proxy
 		/*
+		// Configuração adicional para servidor proxy
 		config.setProperty("proxySet", "true");
 		config.setProperty("socksProxyHost", "127.0.0.1"); // IP do servidor proxy
 		config.setProperty("socksProxyPort", "8080"); // Porta do servidor proxy

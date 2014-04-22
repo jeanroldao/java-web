@@ -11,4 +11,13 @@
 		password="root"
 		driverClassName="com.mysql.jdbc.Driver"
 		url="jdbc:mysql://localhost:3306/financeiro?autoReconnect=true" />
+	<Resource
+		name="mail/Session"
+		auth="Conteiner"
+		type="javax.mail.Session"
+		mail.smtp.host="localhost"
+		mail.smtp.port="25"
+		mail.smtp.auth="true"
+		mail.smtp.user="adm@localhost"
+		mail.smtp.password="123" />
 </Context>

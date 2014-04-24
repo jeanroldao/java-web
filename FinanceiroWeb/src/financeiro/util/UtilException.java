@@ -1,7 +1,8 @@
 package financeiro.util;
 
+@SuppressWarnings("serial")
 public class UtilException extends Exception {
-
-	private static final long serialVersionUID = 4332218273441492983L;
-
+	public UtilException(Throwable e) {
+		super(e);
+	}
 }

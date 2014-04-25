@@ -14,6 +14,7 @@ import financeiro.conta.Conta;
 import financeiro.conta.ContaBO;
 import financeiro.usuario.Usuario;
 import financeiro.usuario.UsuarioBO;
+import financeiro.util.BOException;
 
 @ManagedBean(name="usuarioBean")
 @RequestScoped
@@ -57,6 +58,16 @@ public class UsuarioBean {
 			
 			ContaBO contaBO = new ContaBO();
 			contaBO.salvar(this.conta);
+		}
+		
+		if (this.destinoSalvar.equals("usuarioSucesso")) {
+			try {
+				usuarioBO.enviarEmailPosCadastramento(this.usuario);
+			} catch (BOException e) {
+				FacesMessage message = new FacesMessage("Não foi possivel enviar o e-mail de cadastro do usuário. Erro: " + e.getMessage());
+				context.addMessage(null, message);
+				return null;
+			}
 		}
 		
 		return this.destinoSalvar;

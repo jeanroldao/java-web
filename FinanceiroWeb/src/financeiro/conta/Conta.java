@@ -28,7 +28,7 @@ public class Conta implements Serializable {
 	private Integer conta;
 	
 	@ManyToOne
-	@OnDelete(action=OnDeleteAction.CASCADE)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "cod_usuario", nullable = false)
 	private Usuario usuario;
 	

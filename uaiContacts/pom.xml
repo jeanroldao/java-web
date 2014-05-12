@@ -204,7 +204,12 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
- 
+		 <dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		            
         <!-- Utilities -->
         <dependency>
             <groupId>commons-lang</groupId>
